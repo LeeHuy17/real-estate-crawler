@@ -73,6 +73,8 @@ def run_crawler():
     df = pd.DataFrame(all_data)
     df.to_excel(file_path, index=False, engine='openpyxl')
     print(f"✅ Đã lưu {len(all_data)} dòng dữ liệu vào {file_path}")
+
+    # Đóng 
     driver.quit()
 
 
@@ -82,7 +84,7 @@ if __name__ == "__main__":
 
     while True:
         now = datetime.now()
-        if now.hour == 17 and now.minute == 59:
+        if now.hour == 6 and now.minute == 0:
             run_crawler()
             time.sleep(70)  # Tránh chạy lại nhiều lần trong cùng phút
         else:

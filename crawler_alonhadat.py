@@ -8,7 +8,7 @@ from datetime import datetime
 import os
 
 def run_crawler():
-    print("Bắt đầu thu thập dữ liệu lúc", datetime.now().strftime("%H:%M:%S"))
+    print("🚀 Bắt đầu thu thập dữ liệu lúc", datetime.now().strftime("%H:%M:%S"))
     all_data = []
 
     driver = webdriver.Chrome()
@@ -61,7 +61,7 @@ def run_crawler():
             time.sleep(3)
             extract_data()
         except Exception as e:
-            print("Kết thúc or lỗi:", e)
+            print("Kết thúc hoặc lỗi:", e)
             break
 
     date_str = datetime.now().strftime("%Y-%m-%d")
@@ -69,20 +69,20 @@ def run_crawler():
     os.makedirs(os.path.dirname(file_path), exist_ok=True)
     df = pd.DataFrame(all_data)
     df.to_excel(file_path, index=False, engine='openpyxl')
-    print(f"Đã lưu {len(all_data)} dòng dữ liệu vào {file_path}")
+    print(f"✅ Đã lưu {len(all_data)} dòng dữ liệu vào {file_path}")
 
     # Đóng 
     driver.quit()
 
 
-#Chờ đúng 06:00 để chạy
+# Chờ đến đúng 06:00 để chạy
 if __name__ == "__main__":
-    print("Đang chờ đến 06:00 để chạy crawler...")
+    print("⏰ Hệ thống đang chờ đến 06:00 để chạy crawler...")
 
     while True:
         now = datetime.now()
-        if now.hour == 23 and now.minute == 18:
+        if now.hour == 23 and now.minute == 43:
             run_crawler()
-            time.sleep(70)  
+            time.sleep(70)  # Tránh chạy lại nhiều lần trong cùng phút
         else:
-            time.sleep(30) 
+            time.sleep(30)  # Kiểm tra mỗi 30 giây

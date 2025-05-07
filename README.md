@@ -4,7 +4,7 @@ Dự án Python tự động thu thập dữ liệu nhà đất cho thuê từ t
 
 ## Tính năng
 
-- Lấy dữ liệu bất động sản cho thuê tại Đà Nẵng (tối đa 5 trang).
+- Lấy dữ liệu bất động sản cho thuê tại Đà Nẵng.
 - Lưu dữ liệu ra file Excel (.xlsx).
 - Tự động chạy mỗi ngày lúc 06:00 sáng.
 - Có thể mở rộng cho nhiều tỉnh thành khác.

@@ -51,10 +51,8 @@ def run_crawler():
                 print(f"Lỗi khi lấy dữ liệu tin số {i}: {e}")
 
     extract_data()
-    current_page = 1
-    max_pages = 5
 
-    while current_page < max_pages:
+    while True:
         try:
             next_button = wait.until(EC.presence_of_element_located((By.LINK_TEXT, ">>")))
             if "disabled" in next_button.get_attribute("class") or not next_button.is_enabled():
@@ -62,7 +60,6 @@ def run_crawler():
             next_button.click()
             time.sleep(3)
             extract_data()
-            current_page += 1
         except Exception as e:
             print("Kết thúc or lỗi:", e)
             break
@@ -84,7 +81,7 @@ if __name__ == "__main__":
 
     while True:
         now = datetime.now()
-        if now.hour == 6 and now.minute == 0:
+        if now.hour == 23 and now.minute == 18:
             run_crawler()
             time.sleep(70)  
         else:

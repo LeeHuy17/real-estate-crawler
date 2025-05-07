@@ -1,4 +1,6 @@
-data/
+# .gitignore
 __pycache__/
 *.pyc
-*.xlsx
+*.pyo
+env/
+*.log
